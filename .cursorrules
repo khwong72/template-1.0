@@ -1,3 +1,123 @@
+# StyleGen - AI Image Style Transfer Application
+
+## Project Architecture
+- Next.js 15 App Router with TypeScript and React 18+
+- All frontend components in `/src/components/`
+- Page routes in `/src/app/` following Next.js conventions
+- Server-side API routes in `/src/app/api/` with strict input validation
+- Utility functions and hooks in `/src/lib/`
+- Static assets in `/public/`
+
+## Core Functionality
+- Image upload with client-side validation and preview
+- Style selection from predefined options (Dali, Disney, Ghibli, etc.)
+- Integration with AI image processing APIs (Replicate)
+- User authentication and image history tracking with Firebase
+- Download and sharing of processed images
+
+## Security Principles
+- Validate all user inputs both client-side AND server-side
+- Sanitize file uploads with strict MIME type checking
+- Store sensitive keys ONLY in environment variables
+- Implement proper CORS policies for API routes
+- Set appropriate Content-Security-Policy headers
+- Use Firebase authentication with proper security rules
+- Rate limit API calls to prevent abuse
+- Sanitize user-generated content before rendering
+- Implement proper error boundaries to prevent information leakage
+
+## Client/Server Separation
+- Keep API keys and sensitive logic server-side ONLY
+- Use server components where appropriate to reduce client JavaScript
+- Implement proper loading states for async operations
+- Handle errors gracefully with user-friendly messages
+- Use React Server Components for data fetching when possible
+- Keep client-side state minimal and focused
+
+## Performance Optimization
+- Use Next.js Image component with proper optimization
+- Implement proper code splitting and lazy loading
+- Optimize bundle size with proper imports
+- Implement caching strategies for API responses
+- Use WebP format for faster image transfers
+- Implement proper pagination for data lists
+- Optimize Firebase queries with proper indexing
+
+## Deployment & DevOps
+- Utilize CI/CD pipelines for automated testing and deployment
+- Implement proper staging environments before production
+- Use environment variables for configuration
+- Monitor application performance and errors
+- Implement proper logging and metrics collection
+- Configure CDN for static assets
+- Plan for horizontal scaling if traffic increases
+- Implement proper backup strategies for user data
+
+## File Structure
+- `/src/app/` - Page routes and API endpoints
+- `/src/components/` - Reusable UI components
+  - `/src/components/ImageUpload.tsx` - Image upload component
+  - `/src/components/StyleSelector.tsx` - Style selection component
+  - `/src/components/ProcessingView.tsx` - Processing UI
+  - `/src/components/ResultView.tsx` - Results display
+- `/src/lib/` - Utility functions, hooks, and contexts
+  - `/src/lib/firebase/` - Firebase configuration and utilities
+  - `/src/lib/contexts/` - React contexts for state management
+  - `/src/lib/hooks/` - Custom React hooks
+  - `/src/lib/utils/` - Helper functions
+- `/public/` - Static assets
+  - `/public/images/` - Style examples and logos
+  - `/public/icons/` - UI icons and branding
+
+## Pre-configured APIs (Use as needed)
+- **Firebase**
+  - Integration for Authentication, Storage, and Firestore
+  - Configuration in `/src/lib/firebase/firebase.ts`
+  - Utility functions in `/src/lib/firebase/firebaseUtils.ts`
+  - Auth context in `/src/lib/contexts/AuthContext.tsx`
+  - Auth hooks in `/src/lib/hooks/useAuth.ts`
+
+- **Replicate API**
+  - Image generation endpoint in `/src/app/api/replicate/generate-image/route.ts`
+  - Needs to be extended for style transfer functionality
+  - Use for processing uploaded images with selected styles
+
+## Development Workflow
+1. Create components with proper typing and documentation
+2. Implement client-side validation and state management
+3. Build server-side API routes with input validation
+4. Connect client to server with proper error handling
+5. Test all flows including error states
+6. Optimize performance and accessibility
+7. Deploy with proper monitoring
+
+## Coding Standards
+- Use TypeScript interfaces for all data structures
+- Implement proper error handling with typed errors
+- Use React hooks for state management
+- Follow functional component patterns
+- Write unit tests for critical functionality
+- Document complex logic with comments
+- Follow ESLint rules for code quality
+- Use Prettier for consistent formatting
+
+## Style Guide
+- Use Tailwind CSS for styling with appropriate class organization
+- Maintain consistent spacing and component sizing
+- Follow StyleGen's dark theme color scheme
+- Ensure responsive design across all breakpoints
+- Implement proper focus and hover states for accessibility
+- Use consistent error and success messaging
+
+## Security Best Practices
+- Never commit API keys to version control
+- Validate and sanitize all user inputs
+- Implement proper Content Security Policy
+- Use HTTPS for all communications
+- Set secure and HTTPOnly cookies
+- Implement proper authentication flows
+- Regular security audits and vulnerability scanning
+
 You are an expert in TypeScript, Next.js App Router, React, and Tailwind. Follow @Next.js 14 App Router docs for Data Fetching, Rendering, and Routing. Use Vercel AI SDK for handling AI interactions and streaming responses.
 
 - All project files are saved in the /src folder. 
